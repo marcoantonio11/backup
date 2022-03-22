@@ -51,8 +51,8 @@ while true; do
 #	   while true; do
 	       echo "Deseja salvar no diretório padrão $HOME/backup ou informar o caminho manualmente?
         (1) Salvar em $HOME/backup
-	(2) Escolher diretório de destino"
-	       
+	(2) Escolher diretório de destino
+	(3) Sair do sistema"       
 	       read ESCOLHA
 
 	       if [ $ESCOLHA -eq 1 ];
@@ -68,15 +68,21 @@ while true; do
 		   echo "Fazendo backup do diretório $CAMINHO..."
 		   sleep 2
 		   tar -czvf $DESTINO/$NOMEBKP.caminho_personalizado.tar.gz $CAMINHO
+	       elif [ $ESCOLHA -eq 3 ];
+	       then        
+		   echo "Saindo do sistema..."
+	           sleep 2
+		   exit 0	   
 	       else
 	           echo "Opção inválida! Tente novamente."
-	       fi
-#	   done
+   	       fi
 	   ;;
 	 5)
 	     echo "Saindo do sistema..."
 	     sleep 2
 	     exit 0
 	   ;;
+	 *)
+	     echo "Opção inválida! Tente novamente."
     esac	    
 done
